@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+.emoji_options{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    margin-left: 32px;
+    padding: 0;
+    gap: 10px;
+}
+
+
+.emoji_options input[type=radio]{
+    visibility: hidden;
+}
+
+.emoji_options input[type=radio]label{
+    display: block;
+    outline: 2px solid rgb(255, 255, 255);
+    outline-offset: 10px;
+    border-radius: 50%;
+    width: 40px;
+    float: left;
+}
+
+.emoji_options input[type=radio]:checked+label{
+   outline-color: red;
+}
+
+.emoji_options img{
+    display: flex;
+    height: 40px;
+    cursor: pointer;
+    align-items: center;
+    margin-right: 32px;
+}
+
+.answerPhrase{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 46px;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 24px;
+}
+
+.button_restart{
+    margin-top: 64px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#56b0b4;
+    border: none;
+    color: #ffff;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    height: 50px;
+    width: 150px;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}

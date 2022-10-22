@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+.machine{
+    margin-top: 46px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.machine_gif{
+    height: 250px;
+}
+
+.ejector_machine{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 150px;
+    width: 200px;
+    background-image: url("https://cdn.discordapp.com/attachments/1016745958727491615/1030525413568565330/ejector_words_machine.png");
+    position: relative;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.button_pressme{
+    display: flex;
+    margin-top:95px;
+    align-items: center;
+    background-color:#e86f24;
+    border: none;
+    color: #ffff;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.word {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 30px;
+    font-weight: 200;
+    margin-top: 24px;
+}
+
+.button_sound{
+    display: flex;
+    margin-top:32px;
+    align-items: center;
+    background-color:#56b0b4;
+    padding: 10px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.button_sound img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+}
+
+.question {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    margin-top: 32px;
+}
