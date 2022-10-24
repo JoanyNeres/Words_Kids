@@ -33,9 +33,10 @@ export function Machine(props){
                         <p>Click on the corresponding image:</p>
                     </div> 
                     <Emojis
-                    wordMachine = {props.wordMachine}
-                    emojiMachine = {props.emojiMachine}
-                    emojisDisplay = {props.emojisDisplay}
+                        wordMachine = {props.wordMachine}
+                        emojiMachine = {props.emojiMachine}
+                        emojisDisplay = {props.emojisDisplay}
+                        indexGenerated = {props.indexGenerated}
                     />
                     </> : null
                 }

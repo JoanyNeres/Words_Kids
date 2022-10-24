@@ -75,3 +75,13 @@
     font-weight: 200;
     margin-top: 42px;
 }
+
+@media screen and (max-width: 600px){
+    .word {
+        font-size: 24px;
+    }
+
+    .question {
+        font-size: 18px;
+    }
+}

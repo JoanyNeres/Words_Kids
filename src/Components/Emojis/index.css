@@ -56,21 +56,16 @@
     font-size: 24px;
 }
 
-.button_restart{
-    margin-top: 64px;
-    margin-bottom: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:#56b0b4;
-    border: none;
-    color: #ffff;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    height: 50px;
-    width: 120px;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
+@media screen and (max-width: 600px){
+    .emoji_options{
+        margin-left: 18px;
+        gap: 8px;
+    }
+
+
+    .emoji_options img {
+        height: 30px;
+        margin-right: 18px;
+    }
 }
+

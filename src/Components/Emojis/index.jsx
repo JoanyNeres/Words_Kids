@@ -1,8 +1,8 @@
 import "./index.css"
 import React, { useState } from 'react';
+import { Funfact } from "../Funfact";
 
 export function Emojis(props){
-
 
     const [answerUser, saveAnswer] = useState("")
     const [textForAnswer, setText] = useState("")
@@ -12,12 +12,6 @@ export function Emojis(props){
         setText((answerUser === props.emojiMachine)
             ? "Well done!"
             : "Try again!")
-    }
-    console.log("emoji correto: " + props.emojiMachine)
-    console.log("resposta user: " + answerUser)
-
-    const refreshPage = () => { 
-        window.location.reload(); 
     }
 
 
@@ -95,14 +89,11 @@ export function Emojis(props){
             <div className="answerPhrase">
                 <p>{textForAnswer}</p>
             </div>
-        <div>
-            {textForAnswer === "Well done!" &&
-            <button onClick={refreshPage}
-            className="button_restart">
-            RESTART
-            </button>
+            { textForAnswer === "Well done!" &&
+                <Funfact
+                    indexGenerated = {props.indexGenerated}
+                />
             }
-        </div>
         </>
     )
 }
