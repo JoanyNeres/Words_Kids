@@ -23,15 +23,12 @@ export function Machine(props){
                     </button>
                 </div>
                 <div className="word">
-                    <p>{word}</p>
+                    <p><strong>{word}</strong></p>
                 </div>
                 
                 {word !== "" ?
                     <>
-                    <div className="button_sound">
-                    <buttom><img src="https://www.svgrepo.com/show/390429/audio-music-on-song-sound-speaker.svg"
-                    alt="Listen to the word" /></buttom>
-                    </div>
+                    <button className="button_sound"></button>
                     <div className="question">
                         <p>Click on the corresponding image:</p>
                     </div> 

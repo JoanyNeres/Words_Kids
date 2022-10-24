@@ -4,26 +4,30 @@ import React, { useState } from 'react';
 export function Emojis(props){
 
 
-    let [answerUser, checkAnswer] = useState("")
+    const [answerUser, saveAnswer] = useState("")
     const [textForAnswer, setText] = useState("")
 
-    checkAnswer = (event) => {
+    const checkAnswer = (event) => {
         event.preventDefault()
         setText((answerUser === props.emojiMachine)
             ? "Well done!"
             : "Try again!")
     }
+    console.log("emoji correto: " + props.emojiMachine)
+    console.log("resposta user: " + answerUser)
+
+    const refreshPage = () => { 
+        window.location.reload(); 
+    }
 
 
     return (
         <>
-        <>
-        {answerUser === "" &&
         <div>
             <ul className="emoji_options">
                 <li>
                     <input type="radio" name="emoji" id="emoji-1"
-                    value={answerUser} onClick={checkAnswer} />
+                    value={props.emojisDisplay[0]} onClick={(event) => saveAnswer(event.target.value)} />
                     <label for="emoji-1">
                         <img src={props.emojisDisplay[0]}
                             alt="first emoji"
@@ -33,7 +37,7 @@ export function Emojis(props){
 
                 <li>
                     <input type="radio" name="emoji" id="emoji-2"
-                    value={answerUser} onClick={checkAnswer} />
+                    value={props.emojisDisplay[1]} onClick={(event) => saveAnswer(event.target.value)} />
                     <label for="emoji-2">
                         <img src={props.emojisDisplay[1]}
                             alt="second emoji"
@@ -43,7 +47,7 @@ export function Emojis(props){
 
                 <li>
                     <input type="radio" name="emoji" id="emoji-3"
-                    value={answerUser} onClick={checkAnswer} />
+                    value={props.emojisDisplay[2]} onClick={(event) => saveAnswer(event.target.value)} />
                     <label for="emoji-3">
                         <img src={props.emojisDisplay[2]}
                             alt="third emoji"
@@ -53,7 +57,7 @@ export function Emojis(props){
 
                 <li>
                     <input type="radio" name="emoji" id="emoji-4"
-                    value={answerUser} onClick={checkAnswer} />
+                    value={props.emojisDisplay[3]} onClick={(event) => saveAnswer(event.target.value)} />
                     <label for="emoji-4">
                         <img src={props.emojisDisplay[3]}
                             alt="fourth emoji"
@@ -63,7 +67,7 @@ export function Emojis(props){
 
                 <li>
                     <input type="radio" name="emoji" id="emoji-5"
-                    value={answerUser} onClick={checkAnswer} />
+                    value={props.emojisDisplay[4]} onClick={(event) => saveAnswer(event.target.value)} />
                     <label for="emoji-5">
                         <img src={props.emojisDisplay[4]}
                             alt="fifth emoji"
@@ -73,7 +77,7 @@ export function Emojis(props){
 
                 <li>
                     <input type="radio" name="emoji" id="emoji-6"
-                    value={answerUser} onClick={checkAnswer} />
+                    value={props.emojisDisplay[5]} onClick={(event) => saveAnswer(event.target.value)} />
                     <label for="emoji-6">
                         <img src={props.emojisDisplay[5]}
                             alt="sixth emoji"
@@ -81,17 +85,24 @@ export function Emojis(props){
                     </label>
                 </li>
             </ul>
+        </div>
+            <div>
+                <button onClick={checkAnswer}
+                className="button_send" type="submit">
+                SEND
+                </button>
+            </div>
             <div className="answerPhrase">
                 <p>{textForAnswer}</p>
             </div>
+        <div>
+            {textForAnswer === "Well done!" &&
+            <button onClick={refreshPage}
+            className="button_restart">
+            RESTART
+            </button>
+            }
         </div>
-        }
-        </>
-        {textForAnswer === "Well done!" &&
-            <div className="button_restart">
-            <button>Restart</button>
-            </div>
-        }
         </>
     )
 }
