@@ -1,6 +1,7 @@
 import "./index.css"
 import React, { useState } from 'react';
 import { Emojis } from "../Emojis";
+import $ from "jquery"
 
 export function Machine(props){
 
@@ -10,7 +11,17 @@ export function Machine(props){
         event.preventDefault()
         setWord(props.wordMachine)
     }
+
+    const [urlSound, setUrl] = useState("")
+ 
+
+    const playAudio = (event) => {
+        event.preventDefault()
+        setUrl("https://translate.google.com/translate_tts?tl=en&q=" + word + "&client=tw-ob")
+        $("audio").get(0).load()
+    }
     
+  
 
     return(
         <div>
@@ -26,9 +37,12 @@ export function Machine(props){
                     <p><strong>{word}</strong></p>
                 </div>
                 
-                {word !== "" ?
+                {word !== "" &&
                     <>
-                    <button className="button_sound"></button>
+                    <button id="audio" className="button_sound" onClick={playAudio}></button>
+                    <audio hidden src={urlSound} ></audio>
+
+
                     <div className="question">
                         <p>Click on the corresponding image:</p>
                     </div> 
@@ -38,7 +52,7 @@ export function Machine(props){
                         emojisDisplay = {props.emojisDisplay}
                         indexGenerated = {props.indexGenerated}
                     />
-                    </> : null
+                    </>
                 }
             </div>
 
