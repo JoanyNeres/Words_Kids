@@ -18,7 +18,7 @@ export function Machine(props){
     const playAudio = (event) => {
         event.preventDefault()
         setUrl("https://translate.google.com/translate_tts?tl=en&q=" + word + "&client=tw-ob")
-        $("audio").get(0).load()
+        $("audio").get(0).play()
     }
     
   
