@@ -1,7 +1,6 @@
 import "./index.css"
 import React, { useState } from 'react';
 import { Emojis } from "../Emojis";
-import $ from "jquery"
 
 export function Machine(props){
 
@@ -12,17 +11,20 @@ export function Machine(props){
         setWord(props.wordMachine)
     }
 
-    const [urlSound, setUrl] = useState("")
- 
+    function playText(word){
+        const voices = window.speechSynthesis.getVoices()
+        let utterance = new SpeechSynthesisUtterance(word)
+        utterance.voice = voices[5]
+        speechSynthesis.speak(utterance)
+    }
+
+    speechSynthesis.addEventListener('voiceschanged', playText)
 
     const playAudio = (event) => {
-        event.preventDefault()
-        setUrl("https://translate.google.com/translate_tts?tl=en&q=" + word + "&client=tw-ob")
-        $("audio").get(0).play()
+        playText(word)
     }
-    
-  
 
+    
     return(
         <div>
             <div className="machine">
@@ -40,9 +42,6 @@ export function Machine(props){
                 {word !== "" &&
                     <>
                     <button id="audio" className="button_sound" onClick={playAudio}></button>
-                    <audio hidden src={urlSound} ></audio>
-
-
                     <div className="question">
                         <p>Click on the corresponding image:</p>
                     </div> 
