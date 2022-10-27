@@ -20,7 +20,7 @@ export function Machine(props){
 
     speechSynthesis.addEventListener('voiceschanged', playText)
 
-    const playAudio = (event) => {
+    const playAudio = () => {
         playText(word)
     }
 
