@@ -47,6 +47,10 @@
     cursor: pointer;
 }
 
+.button_send:hover{
+    background-color: #f6b5e1;
+}
+
 .answerPhrase{
     display: flex;
     flex-direction: column;

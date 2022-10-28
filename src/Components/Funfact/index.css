@@ -39,6 +39,10 @@
     cursor: pointer;
 }
 
+.button_restart:hover{
+    background-color: #80c0c3;
+}
+
 @media screen and (max-width: 600px){
     .funfact_phrase {
         margin-left: 15px;

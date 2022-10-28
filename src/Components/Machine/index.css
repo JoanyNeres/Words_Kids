@@ -39,6 +39,11 @@
     cursor: pointer;
 }
 
+.button_pressme:hover{
+    background-color: #dd8e5d;
+
+}
+
 .word {
     display: flex;
     flex-direction: column;
@@ -63,6 +68,10 @@
     border: none;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.button_sound:hover{
+    background-color:#80c0c3
 }
 
 .question {

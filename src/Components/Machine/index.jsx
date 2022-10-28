@@ -15,6 +15,7 @@ export function Machine(props){
         const voices = window.speechSynthesis.getVoices()
         let utterance = new SpeechSynthesisUtterance(word)
         utterance.voice = voices[5]
+        utterance.lang = voices[5].lang
         speechSynthesis.speak(utterance)
     }
 
