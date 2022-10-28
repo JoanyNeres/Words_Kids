@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Words_Kids/static/css/main.e3c03fe3.css",
+    "main.css": "/Words_Kids/static/css/main.af8f6be4.css",
     "main.js": "/Words_Kids/static/js/main.5ffef827.js",
     "static/js/787.992b4bfd.chunk.js": "/Words_Kids/static/js/787.992b4bfd.chunk.js",
     "index.html": "/Words_Kids/index.html",
-    "main.e3c03fe3.css.map": "/Words_Kids/static/css/main.e3c03fe3.css.map",
+    "main.af8f6be4.css.map": "/Words_Kids/static/css/main.af8f6be4.css.map",
     "main.5ffef827.js.map": "/Words_Kids/static/js/main.5ffef827.js.map",
     "787.992b4bfd.chunk.js.map": "/Words_Kids/static/js/787.992b4bfd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e3c03fe3.css",
+    "static/css/main.af8f6be4.css",
     "static/js/main.5ffef827.js"
   ]
 }
