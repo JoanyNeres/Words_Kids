@@ -93,4 +93,7 @@
     .question {
         font-size: 18px;
     }
+    .button_sound {
+        display: none
+    }
 }
