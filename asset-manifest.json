@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Words_Kids/static/css/main.019b539a.css",
+    "main.js": "/Words_Kids/static/js/main.2ed7e03c.js",
+    "static/js/787.992b4bfd.chunk.js": "/Words_Kids/static/js/787.992b4bfd.chunk.js",
+    "index.html": "/Words_Kids/index.html",
+    "main.019b539a.css.map": "/Words_Kids/static/css/main.019b539a.css.map",
+    "main.2ed7e03c.js.map": "/Words_Kids/static/js/main.2ed7e03c.js.map",
+    "787.992b4bfd.chunk.js.map": "/Words_Kids/static/js/787.992b4bfd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.019b539a.css",
+    "static/js/main.2ed7e03c.js"
+  ]
+}
