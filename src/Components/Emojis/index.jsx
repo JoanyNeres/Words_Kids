@@ -1,105 +1,77 @@
-import "./index.css"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
+import wordsInMachine from "../../assets/words";
+import { randomNumber } from "../../utils/randomNumber";
+import Emoji from "../Emoji/Emoji";
 import { Funfact } from "../Funfact";
+import "./index.css";
 
-export function Emojis(props){
+const getRandomWord = () => {
+  return wordsInMachine[randomNumber({ range: wordsInMachine.length })];
+};
 
-    const [answerUser, saveAnswer] = useState("")
-    const [textForAnswer, setText] = useState("")
+export function Emojis({ word, generateWord }) {
+  const [emojiList, setEmojiList] = useState([]);
+  const [answerUser, saveAnswer] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
-    const clickAnswer = (event) => {
-        setText("")
-        saveAnswer(event.target.value)
+  useEffect(() => {
+    saveAnswer("");
+    setSubmitted(false);
+    const list = [word];
+    while (list.length < 6) {
+      const newWord = getRandomWord();
+      if (!list.includes(newWord)) {
+        list.push(newWord);
+      }
     }
-    
-    const checkAnswer = (event) => {
-        event.preventDefault()
-        setText((answerUser === props.emojiMachine)
-            ? "Well done!"
-            : "Try again!")
-    }
+    list.sort((a, b) => (Math.random() > 0.5 ? -1 : 1));
+    setEmojiList(list);
 
+    return () => {
+      setEmojiList([]);
+    };
+  }, [word]);
 
-    return (
+  const clickAnswer = (event) => {
+    setSubmitted(false);
+    saveAnswer(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSubmitted(true);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <ul className="emoji_options">
+          {emojiList.map((item, index) => (
+            <Emoji
+              clickAnswer={clickAnswer}
+              index={index}
+              word={item}
+              key={item.key}
+              answerUser={answerUser}
+            />
+          ))}
+        </ul>
+      </div>
+      <div>
+        <button className="button_send" type="submit">
+          SEND
+        </button>
+      </div>
+      {submitted ? (
         <>
-        <div>
-            <ul className="emoji_options">
-                <li>
-                    <input type="radio" name="emoji" id="emoji-1"
-                    value={props.emojisDisplay[0]} onClick={clickAnswer} />
-                    <label for="emoji-1">
-                        <img src={props.emojisDisplay[0]}
-                            alt="first emoji"
-                        />
-                    </label>
-                </li>
-
-                <li>
-                    <input type="radio" name="emoji" id="emoji-2"
-                    value={props.emojisDisplay[1]} onClick={clickAnswer} />
-                    <label for="emoji-2">
-                        <img src={props.emojisDisplay[1]}
-                            alt="second emoji"
-                        />
-                    </label>
-                </li>
-
-                <li>
-                    <input type="radio" name="emoji" id="emoji-3"
-                    value={props.emojisDisplay[2]} onClick={clickAnswer} />
-                    <label for="emoji-3">
-                        <img src={props.emojisDisplay[2]}
-                            alt="third emoji"
-                        />
-                    </label>
-                </li>
-
-                <li>
-                    <input type="radio" name="emoji" id="emoji-4"
-                    value={props.emojisDisplay[3]} onClick={clickAnswer} />
-                    <label for="emoji-4">
-                        <img src={props.emojisDisplay[3]}
-                            alt="fourth emoji"
-                        />
-                    </label>
-                </li>
-
-                <li>
-                    <input type="radio" name="emoji" id="emoji-5"
-                    value={props.emojisDisplay[4]} onClick={clickAnswer} />
-                    <label for="emoji-5">
-                        <img src={props.emojisDisplay[4]}
-                            alt="fifth emoji"
-                        />
-                    </label>
-                </li>
-
-                <li>
-                    <input type="radio" name="emoji" id="emoji-6"
-                    value={props.emojisDisplay[5]} onClick={clickAnswer} />
-                    <label for="emoji-6">
-                        <img src={props.emojisDisplay[5]}
-                            alt="sixth emoji"
-                        />
-                    </label>
-                </li>
-            </ul>
-        </div>
-            <div>
-                <button onClick={checkAnswer}
-                className="button_send" type="submit">
-                SEND
-                </button>
-            </div>
-            <div className="answerPhrase">
-                <p>{textForAnswer}</p>
-            </div>
-           
-            { textForAnswer === "Well done!" &&
-                <Funfact
-                    indexGenerated = {props.indexGenerated}
-                />
-            }
+          <div className="answerPhrase">
+            <p>{answerUser === word.value ? "Well done!" : "Try again!"}</p>
+          </div>
+          {answerUser === word.value ? (
+            <Funfact text={word.funFact} restart={generateWord} />
+          ) : null}
         </>
-    )
+      ) : null}
+    </form>
+  );
 }
